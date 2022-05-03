@@ -1,7 +1,7 @@
 package part2actors
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
-import part2actors.ChildActors.CreditCard.{AttachToAccount, AttachedToAccount, CheckStatus}
+import part2actors.ChildActors.CreditCard.{AttachToAccount, CheckStatus}
 import part2actors.ChildActors.Parent.CreateChild
 
 object ChildActors extends App {
@@ -80,7 +80,7 @@ object ChildActors extends App {
         override def receive: Receive = {
             case InitializeAccount =>
                 val creditCardRef = context.actorOf(Props[CreditCard], "card")
-                creditCardRef ! AttachToAccount(this)
+//                creditCardRef ! AttachToAccount(this)
             case Deposit(funds) => deposit(funds)
             case Withdraw(funds) => withdraw(funds)
         }
@@ -101,7 +101,8 @@ object ChildActors extends App {
     }
     class CreditCard extends Actor {
         override def receive: Receive = {
-            case AttachToAccount(account) => context.become(attachedTo(account))
+//            case AttachToAccount(account) => context.become(attachedTo(account))
+            case _ =>
         }
 
         def attachedTo(account: NaiveBankAccount): Receive = {

@@ -29,10 +29,10 @@ object ChildActorsExercise extends App {
                 val (worker, tasks) = workers.find(k => k._1 == sender()).getOrElse(throw new Exception())
                 context.become(working(workers + (worker -> (tasks - 1))))
                 originalSender ! count
-            case countPhrase@String =>
+            case countPhrase/*@String*/ =>
                 val (worker, tasks) = workers.min
                 context.become(working(workers + (worker -> (tasks + 1))))
-                worker ! WordCountTask(sender(), countPhrase)
+//                worker ! WordCountTask(sender(), countPhrase)
         }
     }
     class WordCounterWorker extends Actor {
