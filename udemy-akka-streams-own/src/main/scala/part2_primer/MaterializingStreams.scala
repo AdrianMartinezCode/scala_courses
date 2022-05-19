@@ -80,11 +80,11 @@ object MaterializingStreams extends App {
   }
 
   // sugars
-  val sum = Source(1 to 10).runWith(Sink.reduce(_ + _)) // source.to(Sink.reduce)(Keep.right) -> by default
-  sum.onComplete{
-    case Success(v) => println(s"Stream final value $v")
-    case Failure(ex) => println(s"Stream sum failed $ex")
-  }
+//  val sum = Source(1 to 10).runWith(Sink.reduce(_ + _)) // source.to(Sink.reduce)(Keep.right) -> by default
+//  sum.onComplete{
+//    case Success(v) => println(s"Stream final value $v")
+//    case Failure(ex) => println(s"Stream sum failed $ex")
+//  }
 
   Source(1 to 10).runReduce(_ + _) // exactly the same
 
