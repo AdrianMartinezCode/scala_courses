@@ -85,5 +85,5 @@ object BackpressureBasics extends App {
 
   // throttling
   import scala.concurrent.duration._
-//  fastSource.throttle(2, 1, second).runWith(Sink.foreach(println))
+  fastSource.throttle(2, 1 second).runWith(Sink.foreach(println))
 }
