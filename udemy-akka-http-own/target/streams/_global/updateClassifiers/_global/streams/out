@@ -1,3 +1,4 @@
-[debug] not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/home/adrian/IdeaProjects/udemy-akka-http-own/"), "udemy-akka-http-own")...
-[debug] Done updating ProjectRef(uri("file:/home/adrian/IdeaProjects/udemy-akka-http-own/"), "udemy-akka-http-own")
+[warn] akka-stream_2.12-2.5.20-sources.jar no longer exists at /home/adrian/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.5.20/akka-stream_2.12-2.5.20-sources.jar
+[debug] not up to date. inChanged = false, force = false
+[debug] Updating ProjectRef(uri("file:/home/adrian/scala_courses/udemy-akka-http-own/"), "udemy-akka-http-own")...
+[debug] Done updating ProjectRef(uri("file:/home/adrian/scala_courses/udemy-akka-http-own/"), "udemy-akka-http-own")

@@ -1,3 +1,4 @@
-[debug] not up to date. inChanged = true, force = false
+[warn] akka-stream_2.12-2.5.20.jar no longer exists at /home/adrian/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.5.20/akka-stream_2.12-2.5.20.jar
+[debug] not up to date. inChanged = false, force = false
 [debug] Updating ...
 [debug] Done updating 
