@@ -117,10 +117,10 @@ object GraphCycles extends App {
     SourceShape(finalBroadcastShape.out(0))
   }
 
-//  import scala.concurrent.duration._
-//  Source.fromGraph(fiboGenerator)
-//    .throttle(2, 1 second)
-//    .to(Sink.foreach(println)).run()
+  import scala.concurrent.duration._
+  Source.fromGraph(fiboGeneratorOwn)
+    .throttle(2, 1 second)
+    .to(Sink.foreach(println)).run()
 
 
   val fibonacciGenerator = GraphDSL.create() { implicit builder =>
