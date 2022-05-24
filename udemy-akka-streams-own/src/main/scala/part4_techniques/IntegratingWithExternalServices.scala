@@ -8,6 +8,27 @@ import akka.util.Timeout
 import java.util.Date
 import scala.concurrent.Future
 
+
+/*
+Recap
+
+Flows that call external services
+mySource.mapAsync(parallelism = 5)(element => MyExternalService.externalCall(element))
+
+Useful when the services are asynchronous
+- the Futures are evaluated in parallel
+- the relative order of elements is maintained
+- a lagging Future will stall the entire stream
+
+mySource.mapAsyncUnordered(parallelism = 5)(...)
+
+As best practice:
+Evaluate the Futures on their own ExecutionContext
+
+MapAsync works great with asking actors
+mySource.mapAsync(parallelism = 5)(mySource ? _)
+
+ */
 object IntegratingWithExternalServices extends App {
 
   implicit val system = ActorSystem("IntegratingWithExternalServices")
@@ -88,4 +109,6 @@ object IntegratingWithExternalServices extends App {
   val pagerActor = system.actorOf(Props[PagerActor], "pagerActor")
   val alternativePagedEngineerEmails = infraEvents.mapAsync(parallelism = 4)(event => (pagerActor ? event).mapTo[String])
   alternativePagedEngineerEmails.to(pagedEmailsSink).run()
+
+  // do not confuse mapAsync with async (ASYNC boundary)
 }
